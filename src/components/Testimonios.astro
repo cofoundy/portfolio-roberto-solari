@@ -1,0 +1,96 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="testimonios" class="py-20 md:py-28 bg-[var(--color-primary-dark)] text-white relative overflow-hidden">
+  <!-- Subtle pattern -->
+  <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 48px 48px;"></div>
+
+  <div class="relative max-w-4xl mx-auto px-6">
+    <div class="text-center mb-14 reveal">
+      <p class="text-sm font-semibold text-[var(--color-primary-light)] uppercase tracking-widest mb-3">Opiniones de Pacientes</p>
+      <h2 class="text-3xl md:text-4xl font-bold">Lo Que Dicen Mis Pacientes</h2>
+    </div>
+
+    <!-- Testimonial cards -->
+    <div id="testimonial-container" class="relative">
+      {siteConfig.testimonios.map((t, i) => (
+        <div class={`testimonial-item ${i === 0 ? 'block' : 'hidden'}`} data-index={i}>
+          <div class="text-center max-w-2xl mx-auto">
+            <svg class="w-10 h-10 mx-auto mb-6 text-[var(--color-primary-light)]/40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/>
+            </svg>
+            <blockquote class="text-xl md:text-2xl font-light leading-relaxed mb-8 italic">
+              "{t.texto}"
+            </blockquote>
+            <div class="flex items-center justify-center gap-2">
+              <div class="flex gap-0.5 text-yellow-400">
+                {[1,2,3,4,5].map(() => (
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                ))}
+              </div>
+            </div>
+            <p class="text-sm text-[var(--color-primary-light)]/70 mt-2 font-medium">{t.nombre}</p>
+          </div>
+        </div>
+      ))}
+
+      <!-- Navigation dots -->
+      <div class="flex items-center justify-center gap-3 mt-10">
+        {siteConfig.testimonios.map((_, i) => (
+          <button
+            class={`testimonial-dot w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === 0 ? 'bg-white scale-125' : 'bg-white/30 hover:bg-white/60'}`}
+            data-index={i}
+            aria-label={`Testimonio ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const items = document.querySelectorAll('.testimonial-item');
+  const dots = document.querySelectorAll('.testimonial-dot');
+  let current = 0;
+  let interval: ReturnType<typeof setInterval>;
+
+  function showSlide(index: number) {
+    items.forEach((item, i) => {
+      if (i === index) {
+        (item as HTMLElement).classList.remove('hidden');
+        (item as HTMLElement).classList.add('block');
+      } else {
+        (item as HTMLElement).classList.add('hidden');
+        (item as HTMLElement).classList.remove('block');
+      }
+    });
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add('bg-white', 'scale-125');
+        dot.classList.remove('bg-white/30');
+      } else {
+        dot.classList.remove('bg-white', 'scale-125');
+        dot.classList.add('bg-white/30');
+      }
+    });
+    current = index;
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.getAttribute('data-index') || '0');
+      showSlide(idx);
+      clearInterval(interval);
+      startAutoplay();
+    });
+  });
+
+  function startAutoplay() {
+    interval = setInterval(() => {
+      showSlide((current + 1) % items.length);
+    }, 5000);
+  }
+
+  startAutoplay();
+</script>

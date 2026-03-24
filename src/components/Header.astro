@@ -1,0 +1,36 @@
+---
+import { siteConfig } from "../config";
+---
+
+<header id="main-header" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 opacity-0 pointer-events-none transition-all duration-300">
+  <nav class="bg-white/90 backdrop-blur-md shadow-lg rounded-full px-6 py-3 flex items-center gap-6 border border-[var(--color-surface)]">
+    <span class="text-sm font-semibold text-[var(--color-primary-dark)] tracking-wide hidden sm:block">
+      Dr. Solari
+    </span>
+    <div class="flex items-center gap-4 text-sm">
+      <a href="#especialidades" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors">Especialidades</a>
+      <a href="#trayectoria" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors">Trayectoria</a>
+      <a href="#testimonios" class="text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors hidden md:block">Testimonios</a>
+      <a href="#clinica" class="bg-[var(--color-accent)] text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-[var(--color-primary-dark)] transition-colors">
+        Consulta
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const header = document.getElementById('main-header');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 300) {
+      header?.classList.remove('opacity-0', 'pointer-events-none');
+      header?.classList.add('opacity-100', 'pointer-events-auto', 'header-visible');
+    } else {
+      header?.classList.add('opacity-0', 'pointer-events-none');
+      header?.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+    lastScroll = currentScroll;
+  });
+</script>

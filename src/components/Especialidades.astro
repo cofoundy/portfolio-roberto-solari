@@ -1,0 +1,36 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="especialidades" class="py-20 md:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14 reveal">
+      <p class="text-sm font-semibold text-[var(--color-accent)] uppercase tracking-widest mb-3">Áreas de Especialización</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">Especialidades Médicas</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {siteConfig.especialidades.map((esp, i) => (
+        <div class={`specialty-card bg-[var(--color-surface-light)] border border-[var(--color-surface)] rounded-2xl p-8 md:p-10 reveal ${i === 0 ? 'stagger-1' : 'stagger-2'}`}>
+          <div class="flex items-center gap-4 mb-6">
+            <span class="flex items-center justify-center w-14 h-14 bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-2xl rounded-xl">
+              {esp.icono}
+            </span>
+            <h3 class="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)]">{esp.titulo}</h3>
+          </div>
+
+          <p class="text-[var(--color-primary)]/70 mb-6 leading-relaxed">{esp.descripcion}</p>
+
+          <ul class="space-y-2.5">
+            {esp.procedimientos.map((proc) => (
+              <li class="flex items-center gap-3 text-[var(--color-primary-dark)]">
+                <span class="w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full flex-shrink-0"></span>
+                {proc}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
