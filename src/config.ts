@@ -156,8 +156,8 @@ export const siteConfig = {
         direccion: "Av. Brasil 831, Jesús María, Lima",
       },
       {
-        nombre: "Sede San Isidro",
-        direccion: "Av. Del Pinar 124, Oficina 303",
+        nombre: "Sede Chacarilla — Surco",
+        direccion: "Av. Del Pinar 124, Oficina 303, Chacarilla, Surco, Lima",
       },
     ],
     telefonos: ["+51 983 385 522", "+51 994 909 038"],

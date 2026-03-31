@@ -1,0 +1,60 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section class="py-20 md:py-24 bg-[var(--color-surface)] relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-accent)]/4 rounded-full blur-[150px]"></div>
+
+  <div class="relative max-w-5xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-10 items-start">
+      <!-- Left: heading + quote -->
+      <div class="reveal">
+        <p class="text-sm font-semibold text-[var(--color-accent)] uppercase tracking-widest mb-3">Sobre Mí</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)] leading-tight">
+          Vocación por<br/>transformar vidas
+        </h2>
+        <div class="h-1 w-12 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-primary-light)] rounded-full mt-5"></div>
+      </div>
+
+      <!-- Right: bio text -->
+      <div class="md:col-span-2 reveal stagger-1">
+        <div class="bg-white rounded-xl p-8 border border-[var(--color-surface)] shadow-sm">
+          <p class="text-[var(--color-primary-dark)] leading-relaxed mb-4">
+            Médico cirujano con doble especialidad en <strong>Cirugía Plástica</strong> y <strong>Cirugía Bariátrica</strong> — una combinación poco común que me permite abordar la transformación del paciente de forma integral, tanto estética como funcional.
+          </p>
+          <p class="text-[var(--color-primary)]/60 leading-relaxed mb-4">
+            Mi carrera comenzó en el SERUMS en Amazonas, atendiendo emergencias en zona rural. Desde entonces he pasado por los principales hospitales de Lima, incluyendo más de 6 años en el Hospital de la Policía Nacional — donde completé mis dos residencias médicas.
+          </p>
+          <p class="text-[var(--color-primary)]/60 leading-relaxed">
+            Hoy dirijo la <strong class="text-[var(--color-primary-dark)]">Clínica Solari</strong> con dos sedes en Lima, donde combino técnicas de vanguardia con un trato cercano y personalizado para cada paciente.
+          </p>
+
+          <!-- Mini credentials row -->
+          <div class="flex flex-wrap items-center gap-4 mt-6 pt-6 border-t border-[var(--color-surface)]">
+            <div class="flex items-center gap-2 text-xs text-[var(--color-primary)]/50">
+              <svg class="w-4 h-4 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+              </svg>
+              U. San Martín de Porres
+            </div>
+            <div class="flex items-center gap-2 text-xs text-[var(--color-primary)]/50">
+              <svg class="w-4 h-4 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+              </svg>
+              U. Nacional Federico Villarreal
+            </div>
+            <div class="flex items-center gap-2 text-xs text-[var(--color-primary)]/50">
+              <svg class="w-4 h-4 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              Lima, Perú
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

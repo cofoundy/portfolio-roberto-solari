@@ -2,35 +2,42 @@
 import { siteConfig } from "../config";
 ---
 
-<section id="formacion" class="py-20 md:py-28 bg-white">
+<section id="formacion" class="py-20 md:py-24 bg-[var(--color-surface)]">
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-14 reveal">
       <p class="text-sm font-semibold text-[var(--color-accent)] uppercase tracking-widest mb-3">Formación Académica</p>
       <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">Educación y Credenciales</h2>
+      <div class="flex items-center justify-center gap-3 mt-4">
+        <div class="h-px w-12 bg-[var(--color-accent)]/40"></div>
+        <div class="w-2 h-2 rounded-full bg-[var(--color-accent)]"></div>
+        <div class="h-px w-12 bg-[var(--color-accent)]/40"></div>
+      </div>
     </div>
 
-    <!-- Academic grid -->
-    <div class="grid sm:grid-cols-2 gap-6 mb-14">
+    <div class="grid sm:grid-cols-2 gap-6 mb-12">
       {siteConfig.formacion.map((item, i) => (
-        <div class={`reveal stagger-${Math.min(i + 1, 4)} group bg-[var(--color-surface-light)] border border-[var(--color-surface)] rounded-xl p-6 hover:border-[var(--color-primary-light)]/50 transition-colors`}>
-          <div class="flex items-start gap-4">
-            <div class="flex items-center justify-center w-10 h-10 bg-[var(--color-accent)]/10 text-[var(--color-accent)] rounded-lg flex-shrink-0 mt-0.5">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
-              </svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-[var(--color-primary-dark)] mb-1">{item.titulo}</h3>
-              <p class="text-sm text-[var(--color-primary)] mb-1">{item.institucion}</p>
-              <div class="flex items-center gap-2 text-xs text-[var(--color-primary)]/50">
-                <span>{item.periodo}</span>
-                {item.detalle && (
-                  <>
-                    <span>·</span>
-                    <span class="font-medium text-[var(--color-accent)]">{item.detalle}</span>
-                  </>
-                )}
+        <div class={`reveal stagger-${Math.min(i + 1, 4)} bg-white border border-[var(--color-surface)] rounded-xl overflow-hidden hover:border-[var(--color-accent)]/20 transition-all hover:shadow-sm`}>
+          <div class="h-0.5 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)]"></div>
+          <div class="p-6">
+            <div class="flex items-start gap-4">
+              <div class="flex items-center justify-center w-10 h-10 bg-[var(--color-surface)] text-[var(--color-accent)] rounded-lg flex-shrink-0 mt-0.5 border border-[var(--color-accent)]/10">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-[var(--color-primary-dark)] mb-1">{item.titulo}</h3>
+                <p class="text-sm text-[var(--color-primary)]/70 mb-1">{item.institucion}</p>
+                <div class="flex items-center gap-2 text-xs text-[var(--color-primary)]/40">
+                  <span>{item.periodo}</span>
+                  {item.detalle && (
+                    <>
+                      <span>·</span>
+                      <span class="font-semibold text-[var(--color-accent)]">{item.detalle}</span>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -38,18 +45,19 @@ import { siteConfig } from "../config";
       ))}
     </div>
 
-    <!-- Societies & Certifications -->
-    <div class="grid md:grid-cols-2 gap-8 reveal stagger-3">
-      <div>
-        <h3 class="text-lg font-bold text-[var(--color-primary-dark)] mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-          </svg>
+    <div class="grid md:grid-cols-2 gap-6 reveal stagger-3">
+      <div class="bg-white border border-[var(--color-surface)] rounded-xl p-6">
+        <h3 class="text-base font-bold text-[var(--color-primary-dark)] mb-4 flex items-center gap-2">
+          <div class="w-7 h-7 bg-[var(--color-surface)] rounded-md flex items-center justify-center border border-[var(--color-accent)]/10">
+            <svg class="w-3.5 h-3.5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
           Sociedades Profesionales
         </h3>
-        <ul class="space-y-2">
+        <ul class="space-y-2.5">
           {siteConfig.sociedades.map((s) => (
-            <li class="flex items-center gap-3 text-sm text-[var(--color-primary)]">
+            <li class="flex items-center gap-3 text-sm text-[var(--color-primary)]/70">
               <span class="w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full flex-shrink-0"></span>
               {s}
             </li>
@@ -57,16 +65,18 @@ import { siteConfig } from "../config";
         </ul>
       </div>
 
-      <div>
-        <h3 class="text-lg font-bold text-[var(--color-primary-dark)] mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-          </svg>
+      <div class="bg-white border border-[var(--color-surface)] rounded-xl p-6">
+        <h3 class="text-base font-bold text-[var(--color-primary-dark)] mb-4 flex items-center gap-2">
+          <div class="w-7 h-7 bg-[var(--color-surface)] rounded-md flex items-center justify-center border border-[var(--color-accent)]/10">
+            <svg class="w-3.5 h-3.5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+            </svg>
+          </div>
           Certificaciones Destacadas
         </h3>
-        <ul class="space-y-2">
+        <ul class="space-y-2.5">
           {siteConfig.certificaciones.map((c) => (
-            <li class="flex items-center gap-3 text-sm text-[var(--color-primary)]">
+            <li class="flex items-center gap-3 text-sm text-[var(--color-primary)]/70">
               <span class="w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full flex-shrink-0"></span>
               {c}
             </li>

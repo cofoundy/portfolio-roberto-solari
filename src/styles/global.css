@@ -118,19 +118,67 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   SPECIALTY CARDS
+   MEDICAL PULSE LINE
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes pulseDraw {
+  from { stroke-dashoffset: 2400; }
+  to { stroke-dashoffset: 0; }
+}
+
+.pulse-line {
+  stroke-dasharray: 2400;
+  animation: pulseDraw 3s var(--ease-out) 0.5s both;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SPECIALTY CARDS — with shine effect
    ═══════════════════════════════════════════════════════════ */
 
 .specialty-card {
+  position: relative;
   transition: transform var(--duration-normal) var(--ease-out),
               box-shadow var(--duration-normal) var(--ease-out),
               border-color var(--duration-normal) var(--ease-out);
 }
 
+.specialty-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, transparent 40%, rgba(93, 173, 226, 0.06) 50%, transparent 60%);
+  background-size: 200% 200%;
+  background-position: 100% 100%;
+  transition: background-position 0.6s ease;
+  pointer-events: none;
+}
+
+.specialty-card:hover::after {
+  background-position: 0% 0%;
+}
+
 .specialty-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 60px -12px rgba(12, 35, 64, 0.15);
+  box-shadow: 0 20px 60px -12px rgba(12, 35, 64, 0.18),
+              0 0 0 1px rgba(41, 128, 185, 0.1);
   border-color: var(--color-primary-light);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GRADIENT SECTION DIVIDER
+   ═══════════════════════════════════════════════════════════ */
+
+.section-divider {
+  height: 4px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--color-primary-light) 20%,
+    var(--color-accent) 50%,
+    var(--color-primary-light) 80%,
+    transparent 100%
+  );
+  opacity: 0.3;
 }
 
 /* ═══════════════════════════════════════════════════════════

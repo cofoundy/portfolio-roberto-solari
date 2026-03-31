@@ -2,38 +2,45 @@
 import { siteConfig } from "../config";
 ---
 
-<section id="trayectoria" class="py-20 md:py-28 bg-[var(--color-surface)]">
-  <div class="max-w-4xl mx-auto px-6">
+<section id="trayectoria" class="py-20 md:py-24 bg-[var(--color-surface)] relative overflow-hidden">
+  <div class="absolute bottom-0 left-0 w-[500px] h-[400px] bg-[var(--color-accent)]/3 rounded-full blur-[140px]"></div>
+  <div class="absolute top-20 right-0 w-[300px] h-[300px] bg-[var(--color-primary)]/3 rounded-full blur-[120px]"></div>
+
+  <div class="relative max-w-4xl mx-auto px-6">
     <div class="text-center mb-14 reveal">
       <p class="text-sm font-semibold text-[var(--color-accent)] uppercase tracking-widest mb-3">+13 Años de Experiencia</p>
       <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">Trayectoria Profesional</h2>
+      <div class="flex items-center justify-center gap-3 mt-4">
+        <div class="h-px w-12 bg-[var(--color-accent)]/40"></div>
+        <div class="w-2 h-2 rounded-full bg-[var(--color-accent)]"></div>
+        <div class="h-px w-12 bg-[var(--color-accent)]/40"></div>
+      </div>
     </div>
 
-    <!-- Vertical Timeline -->
     <div class="relative">
-      <!-- Animated vertical line -->
-      <div class="absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-[var(--color-primary-light)]/30">
-        <div class="w-full bg-[var(--color-accent)] timeline-line-animated"></div>
+      <!-- Vertical line -->
+      <div class="absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-[var(--color-surface)]">
+        <div class="w-full bg-gradient-to-b from-[var(--color-accent)] to-[var(--color-primary-light)]/40 timeline-line-animated"></div>
       </div>
 
-      <div class="space-y-12">
+      <div class="space-y-10">
         {siteConfig.trayectoria.map((item, i) => {
           const isEven = i % 2 === 0;
           const isLast = i === siteConfig.trayectoria.length - 1;
           return (
             <div class={`relative flex items-start gap-6 md:gap-0 reveal stagger-${Math.min(i + 1, 5)}`}>
-              {/* Timeline dot */}
-              <div class={`absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white z-10 flex-shrink-0 ${isLast ? 'bg-[var(--color-accent)] timeline-dot-active' : 'bg-[var(--color-primary)]'}`}></div>
+              <div class={`absolute left-6 md:left-1/2 -translate-x-1/2 z-10 ${isLast ? 'timeline-dot-active' : ''}`}>
+                <div class={`w-3.5 h-3.5 rounded-full border-[3px] border-white ${isLast ? 'bg-[var(--color-accent)] ring-4 ring-[var(--color-accent)]/15' : 'bg-[var(--color-primary)] ring-4 ring-[var(--color-surface)]'}`}></div>
+              </div>
 
-              {/* Content card */}
               <div class={`ml-14 md:ml-0 md:w-[calc(50%-2rem)] ${isEven ? 'md:pr-0 md:mr-auto' : 'md:pl-0 md:ml-auto'}`}>
-                <div class="bg-white rounded-xl p-5 shadow-sm border border-[var(--color-surface)] hover:shadow-md transition-shadow">
-                  <span class="inline-block text-xs font-bold text-[var(--color-accent)] bg-[var(--color-accent)]/10 px-2.5 py-1 rounded-full mb-2">
+                <div class="bg-[var(--color-surface-light)] rounded-xl p-5 border border-[var(--color-surface)] hover:border-[var(--color-accent)]/20 transition-colors">
+                  <span class="inline-block text-xs font-bold text-[var(--color-accent)] bg-[var(--color-accent)]/8 px-2.5 py-1 rounded-full mb-2">
                     {item.año}
                   </span>
-                  <h3 class="text-lg font-bold text-[var(--color-primary-dark)] mb-1">{item.titulo}</h3>
-                  <p class="text-sm font-medium text-[var(--color-primary)] mb-2">{item.institucion}</p>
-                  <p class="text-sm text-[var(--color-primary)]/60 leading-relaxed">{item.descripcion}</p>
+                  <h3 class="text-base font-bold text-[var(--color-primary-dark)] mb-1">{item.titulo}</h3>
+                  <p class="text-sm font-medium text-[var(--color-primary)] mb-1.5">{item.institucion}</p>
+                  <p class="text-sm text-[var(--color-primary)]/50 leading-relaxed">{item.descripcion}</p>
                 </div>
               </div>
             </div>
