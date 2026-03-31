@@ -2,7 +2,7 @@
 
 Portafolio profesional.
 
-**Live:** *Se actualizará después del deploy*
+**Live:** [roberto-solari.cofoundy.dev](https://roberto-solari.cofoundy.dev/)
 
 ## Tech Stack
 
